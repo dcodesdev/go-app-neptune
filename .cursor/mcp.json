@@ -6,7 +6,7 @@
       "args": [
         "--isolated",
         "--from",
-        "git+ssh://git@github.com/shuttle-hq/neptune-cli-python.git",
+        "git+ssh://git@github.com/shuttle-hq/neptune-cli-python.git@feat/docker-build-result-feedback",
         "neptune",
         "mcp"
       ]
