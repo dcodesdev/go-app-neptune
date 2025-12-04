@@ -150,7 +150,9 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"status": "deleted"})
 	})
 
-	r.Static("/", "./static")
+	r.StaticFile("/", "./static/index.html")
+	r.StaticFile("/index.html", "./static/index.html")
+	r.Static("/static", "./static")
 
 	r.Run(":8080")
 }
