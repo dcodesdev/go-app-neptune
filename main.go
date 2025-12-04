@@ -150,6 +150,13 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"status": "deleted"})
 	})
 
+	r.GET("/api/health", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status":    "healthy",
+			"timestamp": time.Now().UTC(),
+		})
+	})
+
 	r.StaticFile("/", "./static/index.html")
 	r.StaticFile("/index.html", "./static/index.html")
 	r.Static("/static", "./static")
