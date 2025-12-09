@@ -1,8 +1,14 @@
 {
   "mcpServers": {
-    "neptune": {
-      "command": "neptune",
-      "args": ["mcp"]
+    "Neptune": {
+      "command": "uvx",
+      "args": [
+        "--isolated",
+        "--from",
+        "git+https://github.com/shuttle-hq/neptune-cli-python.git",
+        "neptune",
+        "mcp"
+      ]
     }
   }
 }
