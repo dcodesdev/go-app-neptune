@@ -1,15 +1,8 @@
 {
   "mcpServers": {
     "neptune": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": [
-        "--isolated",
-        "--from",
-        "git+ssh://git@github.com/shuttle-hq/neptune-cli-python.git@feat/docker-build-result-feedback",
-        "neptune",
-        "mcp"
-      ]
+      "command": "neptune",
+      "args": ["mcp"]
     }
   }
 }

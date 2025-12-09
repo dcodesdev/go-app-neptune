@@ -100,6 +100,25 @@ func main() {
 		c.JSON(http.StatusOK, todos)
 	})
 
+	r.GET("/api/todos/:id", func(c *gin.Context) {
+		id, err := strconv.Atoi(c.Param("id"))
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid ID"})
+			return
+		}
+
+		store.mu.RLock()
+		todo, exists := store.todos[id]
+		store.mu.RUnlock()
+
+		if !exists {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Todo not found"})
+			return
+		}
+
+		c.JSON(http.StatusOK, todo)
+	})
+
 	r.POST("/api/todos", func(c *gin.Context) {
 		var req struct {
 			Title string `json:"title" binding:"required"`
